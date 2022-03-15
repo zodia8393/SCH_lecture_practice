@@ -1,12 +1,12 @@
-#2022-03-10 ½Ã°è¿­ºĞ¼® 2È¸Â÷
-#½Ç½À
+#2022-03-10 ì‹œê³„ì—´ë¶„ì„ 2íšŒì°¨
+#ì‹¤ìŠµ
 getwd()
-setwd("C:/Users/student/Documents") #ÇĞ±³ ÄÄÇ»ÅÍ¿ë µğ·ºÅä¸®
+setwd("C:/Users/student/Documents") #í•™êµ ì»´í“¨í„°ìš© ë””ë ‰í† ë¦¬
 
-install.packages("tidyverse") #À¯¿ëÇÑ ±â´É ÆĞÅ°Áö
+install.packages("tidyverse") #ìœ ìš©í•œ ê¸°ëŠ¥ íŒ¨í‚¤ì§€
 library(tidyverse)
 
-install.packages("fpp3") #½Ã°è¿­µ¥ÀÌÅÍ ÆĞÅ°Áö
+install.packages("fpp3") #ì‹œê³„ì—´ë°ì´í„° íŒ¨í‚¤ì§€
 library(fpp3)
 
 global_economy
@@ -14,9 +14,9 @@ tourism
 
 mydata<-tibble(
   year = 2012:2016,
-  y=c(123,39,78,52,110) #tibbleµ¥ÀÌÅÍ ¸¸µé±â
+  y=c(123,39,78,52,110) #tibbleë°ì´í„° ë§Œë“¤ê¸°
   )%>%
-  as_tsibble(index=year) #tsibble µ¥ÀÌÅÍ·Î º¯È¯ (½Ã°£°³³äÀÌ Ãß°¡µÈ index°ªÀÌ Ãß°¡µÊ)
+  as_tsibble(index=year) #tsibble ë°ì´í„°ë¡œ ë³€í™˜ (ì‹œê°„ê°œë…ì´ ì¶”ê°€ëœ indexê°’ì´ ì¶”ê°€ë¨)
 
 mydata
 
