@@ -1,21 +1,21 @@
-#2022-03-30 ¼Ò¼È³×Æ®¿öÅ©ºĞ¼® 7È¸Â÷
+#2022-03-30 ì†Œì…œë„¤íŠ¸ì›Œí¬ë¶„ì„ 7íšŒì°¨
 
-#setwd('C:/Users/student/Documents/R_WS') #ÇĞ±³ °­ÀÇ½Ç¿ë µğ·ºÅÍ¸®
-#setwd('C:/Users/User/Documents/WS') #Áı ÄÄÇ»ÅÍ¿ë µğ·ºÅÍ¸®
+#setwd('C:/Users/student/Documents/R_WS') #í•™êµ ê°•ì˜ì‹¤ìš© ë””ë ‰í„°ë¦¬
+#setwd('C:/Users/User/Documents/WS') #ì§‘ ì»´í“¨í„°ìš© ë””ë ‰í„°ë¦¬
 
 installed.packages("igraph")
 library(igraph)
 library(dplyr)
 library(RColorBrewer)
 
-#½Ç½À¿ë ÁÖ½Ä µ¥ÀÌÅÍ
+#ì‹¤ìŠµìš© ì£¼ì‹ ë°ì´í„°
 result<-read.csv("stock.csv")
 result$X<-NULL
 g<-graph.data.frame(result,directed = FALSE)
 
 g1<-delete.edges(g,E(g)[abs(weight)<0.6])
-Isolated=which(degree(g1)==0) #¿¬°áÀÌ ¾ÈµÈ ³ëµå¸¸ ¼±ÅÃÇÏ±â
-g2<-delete.vertices(g1,Isolated) #¿¬°á ¾ÈµÈ ³ëµå Á¦°ÅÇÏ±â
+Isolated=which(degree(g1)==0) #ì—°ê²°ì´ ì•ˆëœ ë…¸ë“œë§Œ ì„ íƒí•˜ê¸°
+g2<-delete.vertices(g1,Isolated) #ì—°ê²° ì•ˆëœ ë…¸ë“œ ì œê±°í•˜ê¸°
 
 A<-matrix(c(1,0, 0,1,1, 0,1, 0, 0, 0,1, 0, 0, 1, 1, 0, 0, 1),byrow=T,ncol=3)
 n<-nrow(A)
@@ -23,23 +23,23 @@ m<-ncol(A)
 rownames(A)<-1:n
 colnames(A)<-c("A","B","C")
 
-B2<-graph_from_incidence_matrix(A,directed=FALSE) #»ç°ÇÇà·Ä·Î ºÒ·¯¿À±â 
+B2<-graph_from_incidence_matrix(A,directed=FALSE) #ì‚¬ê±´í–‰ë ¬ë¡œ ë¶ˆëŸ¬ì˜¤ê¸° 
 
 V(B2)$color<-c(rep("red",n),rep("blue",m))
 V(B2)$size<-c(rep(10,n),rep(20,m))
 
 plot(B2)
 
-R.degree<-degree(B2)[1:n] #¿¬°áÁß½É¼º
+R.degree<-degree(B2)[1:n] #ì—°ê²°ì¤‘ì‹¬ì„±
 R.degree
-R.closeness<-closeness(B2)[1:n] #ÀÎÁ¢Áß½É¼º
+R.closeness<-closeness(B2)[1:n] #ì¸ì ‘ì¤‘ì‹¬ì„±
 R.closeness
 
-A%*%t(A) #Çà ³×Æ®¿öÅ©
+A%*%t(A) #í–‰ ë„¤íŠ¸ì›Œí¬
 
-t(A)%*%A #¿­ ³×Æ®¿öÅ©
+t(A)%*%A #ì—´ ë„¤íŠ¸ì›Œí¬
 
-#Community Å½ÁöÇÏ±â
+#Community íƒì§€í•˜ê¸°
 c_rslt<-edge.betweenness.community(g2)
 
 edge.betweenness.community(g2)$membership
@@ -69,4 +69,4 @@ plot.igraph(g2,layout=layout.auto,vertex.size=4,vertex.label=NA,
 c_rslt<-edge.betweenness.community(g2)
 plot(c_rslt,g2)
 
-
+ì •ê¶Œì— ë”°ë¥¸ ì‚¼ì„±ì „ì ì£¼ê°€ë³€ë™ ì‹œê³„ì—´ ë¶„ì„
