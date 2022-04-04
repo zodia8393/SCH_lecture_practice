@@ -1,0 +1,30 @@
+2022-04-04
+
+랜덤 네트워크 모델
+  두 노드가 연결될 확률이 동일한 확률분포를 따른다는 가정하에 네트워크를 형성하는 모델
+  -가정
+    -노드는 랜덤하게 확률적으로 연결됨, 네트워크는 방향성을 가지지 않는다
+  
+  랜덤 네트워크 생성하기
+  erdos.renyi.game(n,p.or.m) #n=노드 수 p.or.m = edge 연결 확률
+  ex)
+    g<-erdos.renyi.game(1000,1/100)
+    degree(g)
+    degree_distribution(g)
+    plot(g)
+    plot(g,vertex.size=0.2,vertex.label=NA)
+
+좁은 세상 네트워크
+  밀그램의 실험 : 프리게스 카린시가 Chains를 통해서 발전되는 문명의 영향으로 인간사이의 거리는
+                 더 좁아지고 임의의 사람을 선택해도 5명의 사람을 거치면 연결이 가능할것이라고 추측함
+                 
+  Watts-Strongatz 네트워크 : 어느 노드가 연결선 수가 2인 평등한 네트워크 구성
+  
+  교체 과정을 무한히 많이 하면 random network로 바뀜
+  
+
+Barabasi-Albert 네트워크
+  노드에서 엣지를 형성할 확률은 현재 노드에 붙어있는 엣지수에 비례
+   Barabasi-Albert 네트워크 모의 생성
+                 
+                 
