@@ -64,6 +64,18 @@ google_2015<-gafa_stock %>%
 google_2015 %>% autoplot(Close)
 
 
+google_2015<-google_2015 %>%
+  mutate(trading_day=row_number()) %>% #기존데이터의 trading_day를 행번호로 바꿈
+  update_tsibble(index=trading_day,regular=TRUE)  #인덱스를 trading_day로 지정하고 정규성이있다고 지정하여 tsibble데이터 업데이트
+google_2015
+
+google_2015 %>%
+  ACF(Close,lag_max=100) %>% #lag의 최대치를 100으로 지정하고 상관계수 값을 구한 데이터를 시각화시킴
+  autoplot()
+
+
+
+
 
 
 
